@@ -62,7 +62,7 @@ Vector &operator-=(const Vector &other)
 {
 	for (unsigned long i = 0; i < n; i++)
 	{
-		coords_[i] -=  other.coords_[i];
+		coords_[i] -= other.coords_[i];
 	}
 	return *this;
 };
@@ -71,7 +71,7 @@ Vector &operator*=(double number)
 {
 	for (unsigned long i = 0; i < n; i++)
 	{
-		coords_[i] *=  number;
+		coords_[i] *= number;
 	}
 	return *this;
 };
@@ -80,7 +80,7 @@ Vector &operator/=(double number)
 {
 	for (unsigned long i = 0; i < n; i++)
 	{
-		coords_[i] /=  number;
+		coords_[i] /= number;
 	}
 	return *this;
 };
@@ -131,7 +131,7 @@ friend std::ostream &operator<<(std::ostream &stream, const Vector &v)
 {
 	for (unsigned long i = 0; i < n; i++)
 	{
-		stream<<v.coords_[i]<<" ";
+		stream<<" "<<v.coords_[i]<<" ";
 	}
 	return stream;
 }; 
@@ -141,19 +141,14 @@ friend double operator^(const Vector &our, const Vector &other)
 	double sum_return = 0;
 	for (unsigned long i = 0; i < n; i++)
 	{
-		sum_return = sum_return + our.coords_[i]*other.coords_[i];;
+		sum_return += sum_return + our.coords_[i]*other.coords_[i];;
 	}
 	return sum_return;
 };
 
 Vector operator-()const
 {
-	Vector Vector_return;
-	for (unsigned long i = 0; i < n; i++)
-	{
-		Vector_return.coords_[i] = (-1)*coords_[i] ;
-	}
-	return Vector_return;
+	return Vector(*this) *= -1;
 };
   
 private:
