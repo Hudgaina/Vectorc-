@@ -141,7 +141,7 @@ friend double operator^(const Vector &our, const Vector &other)
 	double sum_return = 0;
 	for (unsigned long i = 0; i < n; i++)
 	{
-		sum_return += sum_return + our.coords_[i]*other.coords_[i];;
+		sum_return += our.coords_[i]*other.coords_[i];;
 	}
 	return sum_return;
 };
